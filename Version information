@@ -1,0 +1,452 @@
+[root@localhost ~]# cat /etc/centos-release
+CentOS Linux release 7.3.1611 (Core) 
+
+[root@localhost ~]# uname -r
+3.10.0-514.el7.x86_64
+
+[root@localhost ~]# getconf LONG_BIT
+64
+
+[root@localhost ~]# cat /etc/redhat-release
+CentOS Linux release 7.3.1611 (Core) 
+
+
+[root@localhost ~]# lsb_release -a
+-bash: lsb_release: command not found
+
+[root@localhost ~]# yum install redhat-lsb -y
+
+[root@localhost ~]# lsb_release -a           
+LSB Version:    :core-4.1-amd64:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
+Distributor ID: CentOS
+Description:    CentOS Linux release 7.3.1611 (Core) 
+Release:        7.3.1611
+Codename:       Core
+
+[root@localhost ~]# file /bin/ls
+/bin/ls: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=3d705971a4c4544545cb78fd890d27bf792af6d4, stripped
+
+[root@localhost ~]# more /etc/*release
+::::::::::::::
+/etc/centos-release
+::::::::::::::
+CentOS Linux release 7.3.1611 (Core) 
+::::::::::::::
+/etc/os-release
+::::::::::::::
+NAME="CentOS Linux"
+VERSION="7 (Core)"
+ID="centos"
+ID_LIKE="rhel fedora"
+VERSION_ID="7"
+PRETTY_NAME="CentOS Linux 7 (Core)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:centos:centos:7"
+HOME_URL="https://www.centos.org/"
+BUG_REPORT_URL="https://bugs.centos.org/"
+
+CENTOS_MANTISBT_PROJECT="CentOS-7"
+CENTOS_MANTISBT_PROJECT_VERSION="7"
+REDHAT_SUPPORT_PRODUCT="centos"
+REDHAT_SUPPORT_PRODUCT_VERSION="7"
+
+::::::::::::::
+/etc/redhat-release
+::::::::::::::
+CentOS Linux release 7.3.1611 (Core) 
+::::::::::::::
+/etc/system-release
+::::::::::::::
+CentOS Linux release 7.3.1611 (Core) 
+
+[root@localhost ~]# cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l
+1
+
+[root@localhost ~]# cat /proc/cpuinfo | grep "cpu cores" | uniq
+cpu cores       : 1
+
+[root@localhost ~]# cat /proc/cpuinfo | grep "processor" | wc -l
+1
+
+[root@localhost ~]# cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+      1  Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz
+
+[root@localhost ~]# cat /proc/cpuinfo
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 158
+model name      : Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz
+stepping        : 9
+microcode       : 0x8e
+cpu MHz         : 2494.973
+cache size      : 6144 KB
+physical id     : 0
+siblings        : 1
+core id         : 0
+cpu cores       : 1
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 22
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec
+bogomips        : 4992.00
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 43 bits physical, 48 bits virtual
+power management:
+
+[root@localhost ~]# hostname
+localhost.localdomain
+
+[root@localhost ~]# env
+XDG_SESSION_ID=1
+HOSTNAME=localhost.localdomain
+SELINUX_ROLE_REQUESTED=
+TERM=xterm
+SHELL=/bin/bash
+HISTSIZE=1000
+SSH_CLIENT=192.168.1.1 51042 22
+SELINUX_USE_CURRENT_RANGE=
+SSH_TTY=/dev/pts/0
+USER=root
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+MAIL=/var/spool/mail/root
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+PWD=/root
+LANG=en_US.UTF-8
+SELINUX_LEVEL_REQUESTED=
+HISTCONTROL=ignoredups
+SHLVL=1
+HOME=/root
+LOGNAME=root
+SSH_CONNECTION=192.168.1.1 51042 192.168.1.4 22
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+XDG_RUNTIME_DIR=/run/user/0
+_=/usr/bin/env
+
+[root@localhost ~]# uptime
+ 10:07:35 up 38 min,  1 user,  load average: 0.00, 0.05, 0.07
+ 
+ [root@localhost ~]# cat /proc/loadavg
+0.00 0.04 0.07 1/102 2582
+
+[root@localhost ~]# cat /proc/meminfo
+MemTotal:         999936 kB
+MemFree:          226864 kB
+MemAvailable:     692304 kB
+Buffers:              76 kB
+Cached:           574856 kB
+SwapCached:            0 kB
+Active:           255128 kB
+Inactive:         356920 kB
+Active(anon):      14312 kB
+Inactive(anon):    29600 kB
+Active(file):     240816 kB
+Inactive(file):   327320 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        2097148 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:         37148 kB
+Mapped:            23392 kB
+Shmem:              6796 kB
+Slab:              89896 kB
+SReclaimable:      50052 kB
+SUnreclaim:        39844 kB
+KernelStack:        3648 kB
+PageTables:         2900 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2597116 kB
+Committed_AS:     240820 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      191724 kB
+VmallocChunk:   34359310332 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:      6144 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       61312 kB
+DirectMap2M:      987136 kB
+DirectMap1G:           0 kB
+
+[root@localhost ~]# free -m
+              total        used        free      shared  buff/cache   available
+Mem:            976         105         221           6         649         676
+Swap:          2047           0        2047
+
+[root@localhost ~]# df -h
+Filesystem           Size  Used Avail Use% Mounted on
+/dev/mapper/cl-root   17G  1.4G   16G   8% /
+devtmpfs             478M     0  478M   0% /dev
+tmpfs                489M     0  489M   0% /dev/shm
+tmpfs                489M  6.7M  482M   2% /run
+tmpfs                489M     0  489M   0% /sys/fs/cgroup
+/dev/sda1           1014M  139M  876M  14% /boot
+tmpfs                 98M     0   98M   0% /run/user/0
+
+[root@localhost ~]# fdisk -l
+
+Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000a7b97
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    41943039    19921920   8e  Linux LVM
+
+Disk /dev/mapper/cl-root: 18.2 GB, 18249416704 bytes, 35643392 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/cl-swap: 2147 MB, 2147483648 bytes, 4194304 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+[root@localhost ~]# swapon -s
+Filename                                Type            Size    Used    Priority
+/dev/dm-1                               partition       2097148 0       -1
+
+[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-
+ifcfg-ens33  ifcfg-lo 
+
+[root@localhost ~]# ethtool ens33
+Settings for ens33:
+        Supported ports: [ TP ]
+        Supported link modes:   10baseT/Half 10baseT/Full 
+                                100baseT/Half 100baseT/Full 
+                                1000baseT/Full 
+        Supported pause frame use: No
+        Supports auto-negotiation: Yes
+        Advertised link modes:  10baseT/Half 10baseT/Full 
+                                100baseT/Half 100baseT/Full 
+                                1000baseT/Full 
+        Advertised pause frame use: No
+        Advertised auto-negotiation: Yes
+        Speed: 1000Mb/s
+        Duplex: Full
+        Port: Twisted Pair
+        PHYAD: 0
+        Transceiver: internal
+        Auto-negotiation: on
+        MDI-X: off (auto)
+        Supports Wake-on: d
+        Wake-on: d
+        Current message level: 0x00000007 (7)
+                               drv probe link
+        Link detected: yes
+ [root@localhost ~]# route -n
+-bash: route: command not found
+
+[root@localhost ~]# yum install -y net-tools
+
+[root@localhost ~]# route -n             
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.2     0.0.0.0         UG    100    0        0 ens33
+192.168.1.0     0.0.0.0         255.255.255.0   U     100    0        0 ens33
+
+[root@localhost ~]# netstat -napt  
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      966/sshd            
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1205/master         
+tcp        0     96 192.168.1.4:22          192.168.1.1:51042       ESTABLISHED 2139/sshd: root@pts 
+tcp6       0      0 :::22                   :::*                    LISTEN      966/sshd            
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1205/master  
+
+[root@localhost ~]# lsof -i:80
+-bash: lsof: command not found
+
+[root@localhost ~]# yum install -y lsof 
+
+[root@localhost ~]# lsof -i:22
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd     966 root    3u  IPv4  18240      0t0  TCP *:ssh (LISTEN)
+sshd     966 root    4u  IPv6  18307      0t0  TCP *:ssh (LISTEN)
+sshd    2139 root    3u  IPv4  19804      0t0  TCP localhost.localdomain:ssh->192.168.1.1:51042 (ESTABLISHED)
+
+[root@localhost ~]# ps -ef
+UID         PID   PPID  C STIME TTY          TIME CMD
+root          1      0  0 09:29 ?        00:00:00 /usr/lib/systemd/systemd --switched-root --system --deserialize 21
+root          2      0  0 09:29 ?        00:00:00 [kthreadd]
+root          3      2  0 09:29 ?        00:00:00 [ksoftirqd/0]
+root          6      2  0 09:29 ?        00:00:02 [kworker/u256:0]
+root          7      2  0 09:29 ?        00:00:00 [migration/0]
+root          8      2  0 09:29 ?        00:00:00 [rcu_bh]
+root          9      2  0 09:29 ?        00:00:00 [rcu_sched]
+root         10      2  0 09:29 ?        00:00:00 [watchdog/0]
+root         12      2  0 09:29 ?        00:00:00 [khelper]
+root         13      2  0 09:29 ?        00:00:00 [kdevtmpfs]
+root         14      2  0 09:29 ?        00:00:00 [netns]
+root         15      2  0 09:29 ?        00:00:00 [khungtaskd]
+root         16      2  0 09:29 ?        00:00:00 [writeback]
+root         17      2  0 09:29 ?        00:00:00 [kintegrityd]
+root         18      2  0 09:29 ?        00:00:00 [bioset]
+root         19      2  0 09:29 ?        00:00:00 [kblockd]
+root         20      2  0 09:29 ?        00:00:00 [md]
+root         26      2  0 09:29 ?        00:00:00 [kswapd0]
+root         27      2  0 09:29 ?        00:00:00 [ksmd]
+root         28      2  0 09:29 ?        00:00:00 [khugepaged]
+root         29      2  0 09:29 ?        00:00:00 [fsnotify_mark]
+root         30      2  0 09:29 ?        00:00:00 [crypto]
+root         38      2  0 09:29 ?        00:00:00 [kthrotld]
+root         40      2  0 09:29 ?        00:00:00 [kmpath_rdacd]
+root         41      2  0 09:29 ?        00:00:00 [kpsmoused]
+root         43      2  0 09:29 ?        00:00:00 [ipv6_addrconf]
+root         62      2  0 09:29 ?        00:00:00 [deferwq]
+root         94      2  0 09:29 ?        00:00:00 [kauditd]
+root        246      2  0 09:29 ?        00:00:01 [kworker/0:3]
+root        274      2  0 09:29 ?        00:00:00 [ata_sff]
+root        275      2  0 09:29 ?        00:00:00 [mpt_poll_0]
+root        276      2  0 09:29 ?        00:00:00 [mpt/0]
+root        285      2  0 09:29 ?        00:00:00 [scsi_eh_0]
+root        286      2  0 09:29 ?        00:00:00 [scsi_tmf_0]
+root        287      2  0 09:29 ?        00:00:00 [scsi_eh_1]
+root        290      2  0 09:29 ?        00:00:00 [scsi_tmf_1]
+root        291      2  0 09:29 ?        00:00:00 [scsi_eh_2]
+root        293      2  0 09:29 ?        00:00:00 [scsi_tmf_2]
+root        296      2  0 09:29 ?        00:00:00 [ttm_swap]
+root        367      2  0 09:29 ?        00:00:00 [kdmflush]
+root        368      2  0 09:29 ?        00:00:00 [bioset]
+root        378      2  0 09:29 ?        00:00:00 [kdmflush]
+root        379      2  0 09:29 ?        00:00:00 [bioset]
+root        393      2  0 09:29 ?        00:00:00 [xfsalloc]
+root        394      2  0 09:29 ?        00:00:00 [xfs_mru_cache]
+root        395      2  0 09:29 ?        00:00:00 [xfs-buf/dm-0]
+root        396      2  0 09:29 ?        00:00:00 [xfs-data/dm-0]
+root        397      2  0 09:29 ?        00:00:00 [xfs-conv/dm-0]
+root        398      2  0 09:29 ?        00:00:00 [xfs-cil/dm-0]
+root        399      2  0 09:29 ?        00:00:00 [xfs-reclaim/dm-]
+root        400      2  0 09:29 ?        00:00:00 [xfs-log/dm-0]
+root        401      2  0 09:29 ?        00:00:00 [xfs-eofblocks/d]
+root        402      2  0 09:29 ?        00:00:00 [xfsaild/dm-0]
+root        471      1  0 09:29 ?        00:00:00 /usr/lib/systemd/systemd-journald
+root        488      1  0 09:29 ?        00:00:00 /usr/sbin/lvmetad -f
+root        496      1  0 09:29 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+root        511      2  0 09:29 ?        00:00:00 [nfit]
+root        543      2  0 09:29 ?        00:00:00 [xfs-buf/sda1]
+root        545      2  0 09:29 ?        00:00:00 [xfs-data/sda1]
+root        549      2  0 09:29 ?        00:00:00 [xfs-conv/sda1]
+root        551      2  0 09:29 ?        00:00:00 [xfs-cil/sda1]
+root        555      2  0 09:29 ?        00:00:00 [xfs-reclaim/sda]
+root        556      2  0 09:29 ?        00:00:00 [xfs-log/sda1]
+root        560      2  0 09:29 ?        00:00:00 [xfs-eofblocks/s]
+root        562      2  0 09:29 ?        00:00:00 [xfsaild/sda1]
+root        596      1  0 09:29 ?        00:00:00 /sbin/auditd -n
+dbus        616      1  0 09:29 ?        00:00:00 /bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+polkitd     620      1  0 09:29 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug
+root        622      1  0 09:29 ?        00:00:00 /usr/lib/systemd/systemd-logind
+chrony      629      1  0 09:29 ?        00:00:00 /usr/sbin/chronyd
+root        633      1  0 09:29 tty1     00:00:00 /sbin/agetty --noclear tty1 linux
+root        648      1  0 09:29 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+root        950      1  0 09:29 ?        00:00:00 /usr/bin/python -Es /usr/sbin/tuned -l -P
+root        951      1  0 09:29 ?        00:00:00 /usr/sbin/rsyslogd -n
+root        966      1  0 09:29 ?        00:00:00 /usr/sbin/sshd
+root       1205      1  0 09:29 ?        00:00:00 /usr/libexec/postfix/master -w
+postfix    1210   1205  0 09:29 ?        00:00:00 pickup -l -t unix -u
+postfix    1211   1205  0 09:29 ?        00:00:00 qmgr -l -t unix -u
+root       2139    966  0 09:30 ?        00:00:00 sshd: root@pts/0
+root       2143   2139  0 09:30 pts/0    00:00:00 -bash
+root       2246      2  0 09:54 ?        00:00:00 [kworker/0:0]
+root       2333      2  0 09:58 ?        00:00:00 [kworker/u256:2]
+root       2340      1  0 09:58 ?        00:00:00 /usr/sbin/crond -n
+root       2542      2  0 10:00 ?        00:00:00 [kworker/0:0H]
+root       2585      2  0 10:09 ?        00:00:00 [kworker/0:1H]
+root       2635      2  0 10:14 ?        00:00:00 [kworker/0:1]
+root       2638      2  0 10:15 ?        00:00:00 [kworker/0:2H]
+root       2644   2143  0 10:16 pts/0    00:00:00 ps -ef
+
+[root@localhost ~]# top
+top - 10:17:55 up 48 min,  1 user,  load average: 0.02, 0.03, 0.05
+Tasks:  88 total,   1 running,  87 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   999936 total,   215896 free,   108644 used,   675396 buff/cache
+KiB Swap:  2097148 total,  2097148 free,        0 used.   691788 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                             
+     1 root      20   0  128092   6716   3956 S  0.0  0.7   0:00.73 systemd                                                             
+     2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd                                                            
+     3 root      20   0       0      0      0 S  0.0  0.0   0:00.50 ksoftirqd/0                                                         
+     6 root      20   0       0      0      0 S  0.0  0.0   0:02.19 kworker/u256:0                                                      
+     7 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0                                                         
+     8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh                                                              
+     9 root      20   0       0      0      0 S  0.0  0.0   0:00.26 rcu_sched                                                           
+    10 root      rt   0       0      0      0 S  0.0  0.0   0:00.02 watchdog/0                                                          
+    12 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 khelper                                                             
+    13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs                                                           
+    14 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 netns                                                               
+    15 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd                                                          
+    16 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 writeback                                                           
+    17 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kintegrityd                                                         
+    18 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 bioset                                                              
+    19 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kblockd                                                             
+    20 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 md                                                                  
+    26 root      20   0       0      0      0 S  0.0  0.0   0:00.01 kswapd0  
+    
+    [root@localhost ~]# w
+ 10:18:23 up 49 min,  1 user,  load average: 0.01, 0.03, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    192.168.1.1      09:30    7.00s  0.06s  0.00s w
+
+[root@localhost ~]# id root  
+uid=0(root) gid=0(root) groups=0(root)
+
+[root@localhost ~]# id root
+uid=0(root) gid=0(root) groups=0(root)
+[root@localhost ~]# last 
+root     pts/0        192.168.1.1      Tue Aug 20 09:30   still logged in   
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 09:29 - 10:19  (00:49)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 09:28 - 10:19  (00:50)    
+root     pts/0        192.168.1.1      Tue Aug 20 08:39 - crash  (00:49)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 08:36 - 10:19  (01:42)    
+root     pts/0        192.168.1.1      Tue Aug 20 08:07 - crash  (00:28)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 08:07 - 10:19  (02:11)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 08:06 - 10:19  (02:12)    
+root     pts/0        192.168.1.1      Tue Aug 20 07:30 - crash  (00:36)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 07:29 - 10:19  (02:49)    
+root     pts/0        192.168.1.1      Tue Aug 20 06:53 - down   (00:36)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 06:52 - 07:29  (00:36)    
+root     pts/0        192.168.1.1      Tue Aug 20 06:34 - crash  (00:18)    
+root     tty1                          Tue Aug 20 06:29 - 06:52  (00:23)    
+reboot   system boot  3.10.0-514.el7.x Tue Aug 20 06:28 - 07:29  (01:01)    
+
+wtmp begins Tue Aug 20 06:28:35 2019
+
+[root@localhost ~]# cut -d: -f1 /etc/passwd
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+halt
+mail
+operator
+games
+ftp
+nobody
+systemd-bus-proxy
+systemd-network
+dbus
+polkitd
+tss
+sshd
+postfix
+chrony
