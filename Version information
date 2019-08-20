@@ -14,7 +14,7 @@ CentOS Linux release 7.3.1611 (Core)
 [root@localhost ~]# lsb_release -a
 -bash: lsb_release: command not found
 
-[root@localhost ~]# yum install redhat-lsb -y
+[root@localhost ~]# yum install -y redhat-lsb
 
 [root@localhost ~]# lsb_release -a           
 LSB Version:    :core-4.1-amd64:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
