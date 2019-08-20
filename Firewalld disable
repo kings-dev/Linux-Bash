@@ -1,0 +1,19 @@
+[root@localhost ~]# systemctl stop firewalld
+
+[root@localhost ~]# systemctl disable firewalld
+Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+Removed symlink /etc/systemd/system/basic.target.wants/firewalld.service.
+
+[root@localhost ~]# systemctl status firewalld 
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:firewalld(1)
+
+Aug 20 09:29:21 localhost.localdomain systemd[1]: Starting firewalld - dynamic firewall daemon...
+Aug 20 09:29:21 localhost.localdomain systemd[1]: Started firewalld - dynamic firewall daemon.
+Aug 20 09:46:02 localhost.localdomain systemd[1]: Stopping firewalld - dynamic firewall daemon...
+Aug 20 09:46:02 localhost.localdomain systemd[1]: Stopped firewalld - dynamic firewall daemon.
+
+[root@localhost ~]# firewall-cmd --state
+not running
